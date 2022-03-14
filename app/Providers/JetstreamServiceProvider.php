@@ -15,7 +15,8 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->registerComponent('add-book');
+        $this->registerComponent('add-student');
     }
 
     /**
@@ -45,5 +46,9 @@ class JetstreamServiceProvider extends ServiceProvider
             'update',
             'delete',
         ]);
+    }
+
+    protected function registerComponent(string $component) {
+        \Illuminate\Support\Facades\Blade::component('jetstream::components.'.$component, 'jet-'.$component);
     }
 }

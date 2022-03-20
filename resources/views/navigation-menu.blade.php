@@ -20,6 +20,10 @@
                         {{ __('Add Books') }}
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('books.manage') }}" :active="request()->routeIs('books.manage')">
+                        {{ __('Manage Books') }}
+                    </x-jet-nav-link>
+
                     <x-jet-nav-link href="{{ route('students.add') }}" :active="request()->routeIs('students.add')">
                         {{ __('Add Students') }}
                     </x-jet-nav-link>

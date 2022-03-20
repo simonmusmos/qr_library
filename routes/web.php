@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['prefix'=>'books','as'=>'books.'], function(){
     Route::get('add', ['as' => 'add', 'uses' => 'BookController@create']);
+    Route::get('', ['as' => 'manage', 'uses' => 'BookController@index']);
     // Route::get('add', [BookController::class, 'create'])->name('add');
     Route::post('store', ['as' => 'store', 'uses' => 'BookController@store']);
 });

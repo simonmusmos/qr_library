@@ -30,6 +30,7 @@ Route::group(['prefix'=>'books','as'=>'books.'], function(){
 
 Route::group(['prefix'=>'students','as'=>'students.'], function(){
     Route::get('add', ['as' => 'add', 'uses' => 'StudentController@create']);
+    Route::get('', ['as' => 'manage', 'uses' => 'StudentController@index']);
     // Route::get('add', [BookController::class, 'create'])->name('add');
     Route::post('store', ['as' => 'store', 'uses' => 'StudentController@store']);
 });

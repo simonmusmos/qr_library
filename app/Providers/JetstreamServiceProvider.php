@@ -18,6 +18,7 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->registerComponent('add-book');
         $this->registerComponent('manage-book');
         $this->registerComponent('add-student');
+        $this->registerComponent('manage-student');
     }
 
     /**

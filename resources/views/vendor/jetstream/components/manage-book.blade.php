@@ -23,12 +23,6 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
           @foreach($books as $book)
           <tr>
             <th scope="row">{{ $book->id }}</th>

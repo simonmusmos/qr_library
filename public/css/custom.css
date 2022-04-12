@@ -1,13 +1,28 @@
 .logo {
-    height: 160px;
     width: 160px;
 }
 
 .logo-navbar {
-    height: 60px;
     width: 60px;
+}
+
+.logo-jumbo {
+    width: 500px;
 }
 
 .qr_initial_display {
     height: 80%;
+}
+
+.logo-jumbo-text {
+    font-family: 'Rubik Mono One', sans-serif;
+    size: 10vh;
+}
+
+.nav-dd-first {
+    margin-left: 15px !important;
+}
+
+.nav-dd-second {
+    margin-left: 0px !important;
 }

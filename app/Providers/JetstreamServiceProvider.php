@@ -15,10 +15,16 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->registerComponent('borrow-book');
+        $this->registerComponent('return-book');
         $this->registerComponent('add-book');
         $this->registerComponent('manage-book');
         $this->registerComponent('add-student');
         $this->registerComponent('manage-student');
+        $this->registerComponent('view-dog');
+        $this->registerComponent('welcome-page');
+        $this->registerComponent('view-logs');
+        $this->registerComponent('book-logs');
     }
 
     /**

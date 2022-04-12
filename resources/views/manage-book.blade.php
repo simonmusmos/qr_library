@@ -46,6 +46,9 @@
                                         {{ __('Download') }}
                                     </x-jet-button></a>
                                 @endif
+                                <a href="{{ route('books.logs', ['book' => $book->id]) }}"><x-jet-button id="view-book-logs-button" type="button">
+                                    {{ __('View Logs') }}
+                                </x-jet-button></a>
                                 <x-jet-button id="delete-book-button" type="button">
                                     {{ __('Delete') }}
                                 </x-jet-button>
@@ -59,7 +62,13 @@
                         @endif
                         </tbody>
                     </table>
+                    <div>
+                        <a href="{{ route('books.export') }}" download><x-jet-button id="download-csv-button" type="button" class="btn btn-sm">
+                            {{ __('Download CSV') }}
+                        </x-jet-button></a>
+                    </div>
                     <div class="d-flex justify-content-center">
+                        
                         {!! $books->links() !!}
                     </div>
                 </div>

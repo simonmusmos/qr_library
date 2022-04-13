@@ -213,6 +213,15 @@ class BookController extends Controller
         return view('book-logs',['logs' => $logs, 'all' => $all, 'is_student' => $is_student, 'is_book' => $is_book]);
     }
 
+    public function viewDashboard(Request $request){
+        
+
+        $borrowed = BorrowLog::where("is_returned", 0)->orderBy("id", "DESC")->paginate(20);
+        $returned = BorrowLog::where("is_returned", 1)->orderBy("id", "DESC")->paginate(20);
+        // dd($logs);
+        return view('dashboard',['borrowed_books' => $borrowed, 'returned_books' => $returned]);
+    }
+
     public function export() 
     {
         $book_arr = [];

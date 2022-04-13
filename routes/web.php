@@ -21,9 +21,7 @@ Route::get('/welcome', function () {
     return view('welcome-page');
 })->name('welcome');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');      
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'BookController@viewDashboard')->name('dashboard');      
 
 Route::group(['prefix'=>'books','as'=>'books.'], function(){
     Route::get('add', ['as' => 'add', 'uses' => 'BookController@create']);

@@ -49,7 +49,7 @@
                                 <a href="{{ route('books.logs', ['book' => $book->id]) }}"><x-jet-button id="view-book-logs-button" type="button">
                                     {{ __('View Logs') }}
                                 </x-jet-button></a>
-                                <x-jet-button id="delete-book-button" type="button">
+                                <x-jet-button class="delete-book-button" type="button" onClick="deleteAction({{ $book->id }})">
                                     {{ __('Delete') }}
                                 </x-jet-button>
                             </td>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class StudentController extends Controller
 {
@@ -109,9 +110,11 @@ class StudentController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Request $request)
     {
-        //
+        DB::table('students')->where("id", $request->id)->delete();
+
+        echo json_encode(Array('result' => true));
     }
 
     public function changeStatus(Request $request)

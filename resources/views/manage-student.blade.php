@@ -52,7 +52,7 @@
                                         {{ __('Student Log') }}
                                     </x-jet-button></a>
 
-                                    <x-jet-button class="mt-4 " id="delete-book-button" type="button">
+                                    <x-jet-button class="delete-student-button" type="button" onClick="deleteAction({{ $student->id }})">
                                         {{ __('Delete') }}
                                     </x-jet-button>
                                 </td>

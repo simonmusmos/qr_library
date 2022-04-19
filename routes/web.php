@@ -30,6 +30,7 @@ Route::group(['prefix'=>'books','as'=>'books.'], function(){
     Route::post('store', ['as' => 'store', 'uses' => 'BookController@store']);
     Route::get('logs/', ['as' => 'logs', 'uses' => 'BookController@viewLogs']);
     Route::get('export', ['as' => 'export', 'uses' => 'BookController@export']);
+    Route::post('delete', ['as' => 'delete', 'uses' => 'BookController@destroy']);
 });
 
 Route::group(['prefix'=>'students','as'=>'students.'], function(){
@@ -39,6 +40,7 @@ Route::group(['prefix'=>'students','as'=>'students.'], function(){
     Route::post('store', ['as' => 'store', 'uses' => 'StudentController@store']);
     Route::post('status', ['as' => 'status', 'uses' => 'StudentController@changeStatus']);
     Route::get('logs', ['as' => 'logs', 'uses' => 'StudentController@viewLogs']);
+    Route::post('delete', ['as' => 'delete', 'uses' => 'StudentController@destroy']);
 });
 
 Route::group(['prefix'=>'borrow','as'=>'borrow.'], function(){

@@ -13,6 +13,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\BooksExport;
 use Maatwebsite\Excel\Facades\Excel;
+use DB;
 
 class BookController extends Controller
 {
@@ -114,9 +115,11 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Request $request)
     {
-        //
+        DB::table('books')->where("id", $request->id)->delete();
+
+        echo json_encode(Array('result' => true));
     }
 
     public function borrow()

@@ -223,3 +223,43 @@ $("#action-return-book").on("click", function(){
 //     let barcode = $(".scanner-input").val();
 //     console.log(barcode);
 // }
+
+function deleteAction(id){
+    $("#delete-id").val(id);
+    $("#delete-modal").modal("show");
+}
+
+$(".continue-delete").on("click", function(){
+    $("#delete-form").submit();
+});
+
+$("#delete-form").on("submit", function(e){
+    e.preventDefault();
+
+    $.ajax({
+        url: $(this).attr('action'),
+        type: "post",
+        data: {
+            id: $("#delete-id").val()
+        },
+        success: function (response) {
+            var data = JSON.parse(response);
+            
+
+            if(data.result){
+                toastr.success("Book Deleted! Page will reload in 3 seconds.");
+                $("#delete-id").val("");
+                setTimeout(function(){
+                    location.reload();
+                }, 3000)            
+                // $("input[name=isbn]").val(data.data.isbn);
+            }else{
+                toastr.error(data.message);
+            }
+        // You will get response from your PHP page (what you echo or print)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
+        }
+    });
+});
